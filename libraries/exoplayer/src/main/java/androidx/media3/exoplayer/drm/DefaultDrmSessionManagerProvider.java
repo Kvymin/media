@@ -127,6 +127,6 @@ public final class DefaultDrmSessionManagerProvider implements DrmSessionManager
     }
     DefaultDrmSessionManager drmSessionManager = drmSessionManagerBuilder.build(httpDrmCallback);
     drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
-    return drmSessionManager;
+    return LocalClearKeySessionManager.wrap(drmConfiguration, drmSessionManager);
   }
 }
